@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void onClickMoveToDetail(Product product){
-        Intent intent = new Intent(this, DetailActicity.class);
+        Intent intent = new Intent(this, detailActivity.class);
         Bundle bundle = new Bundle();
         bundle.putSerializable("object_product", product);
         intent.putExtras(bundle);
