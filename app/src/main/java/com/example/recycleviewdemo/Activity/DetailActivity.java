@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.example.recycleviewdemo.Entity.Product;
 import com.example.recycleviewdemo.R;
 
-public class detailActivity extends AppCompatActivity {
+public class DetailActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
