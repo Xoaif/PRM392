@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "714134149532",
+    "firebase_url": "https://prm-project-3e2cb-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "prm-project-3e2cb",
+    "storage_bucket": "prm-project-3e2cb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:714134149532:android:535a60c6e0679cfbe39059",
+        "android_client_info": {
+          "package_name": "com.example.finalproject"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCG2LwMJfGRDPbo2-N_mM1Ajni74qe8x0I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:714134149532:android:665b9c174cd7aefbe39059",
+        "android_client_info": {
+          "package_name": "com.example.recycleviewdemo"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCG2LwMJfGRDPbo2-N_mM1Ajni74qe8x0I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
