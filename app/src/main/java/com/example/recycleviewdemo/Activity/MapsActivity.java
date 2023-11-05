@@ -60,7 +60,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng defaultLocation = new LatLng(21.0130914,105.528516);
         mMap.addMarker(new MarkerOptions()
                 .position(defaultLocation)
-                .title("Marker in my university")
+                .title("Marker in our store")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED))
         );
         mMap.moveCamera(CameraUpdateFactory.newLatLng(defaultLocation)); //Instantly move camera
