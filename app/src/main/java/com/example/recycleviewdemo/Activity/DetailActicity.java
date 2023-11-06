@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.example.recycleviewdemo.Entity.Product;
 import com.example.recycleviewdemo.R;
 
-public class DetailActivity extends AppCompatActivity {
+public class DetailActicity extends AppCompatActivity {
 
     private ImageView detailImage;
     private TextView detailName;
