@@ -9,6 +9,8 @@ color teal_200
 color teal_700
 color white
 drawable baseline_add_24
+drawable baseline_favorite_24
+drawable baseline_share_24
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable lavender_border
@@ -16,6 +18,7 @@ drawable upload
 id detailDescription
 id detailImage
 id detailName
+id detailPrice
 id fab
 id recCard
 id recDescription

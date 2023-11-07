@@ -2962,6 +2962,8 @@ int drawable abc_vector_test 0x7f070077
 int drawable avd_hide_password 0x7f070078
 int drawable avd_show_password 0x7f070079
 int drawable baseline_add_24 0x7f07007a
+int drawable baseline_favorite_24 0x7f0700f8
+int drawable baseline_share_24 0x7f0700f9
 int drawable btn_checkbox_checked_mtrl 0x7f07007b
 int drawable btn_checkbox_checked_to_unchecked_mtrl_animation 0x7f07007c
 int drawable btn_checkbox_unchecked_mtrl 0x7f07007d
@@ -3242,6 +3244,7 @@ int id design_navigation_view 0x7f080097
 int id detailDescription 0x7f080098
 int id detailImage 0x7f080099
 int id detailName 0x7f08009a
+int id detailPrice 0x7f080204
 int id dialog_button 0x7f08009b
 int id dimensions 0x7f08009c
 int id direct 0x7f08009d
