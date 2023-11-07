@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         ProductAdapter adapter = new ProductAdapter(MainActivity.this, dataList);
         recyclerView.setAdapter(adapter);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Product");
+        databaseReference = FirebaseDatabase.getInstance().getReference("product");
         dialog.show();
 
         eventListener = databaseReference.addValueEventListener(new ValueEventListener() {
