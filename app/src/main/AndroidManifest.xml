@@ -5,6 +5,10 @@
     <uses-permission android:name="android.permission.INTERNET" /> <!-- This permission grants access to precise (GPS) location information. -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- This permission grants access to approximate (network-based) location information. -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+
 
     <application
         android:allowBackup="true"
@@ -17,10 +21,17 @@
         android:theme="@style/Theme.RecycleViewDemo"
         tools:targetApi="31">
         <activity
+            android:name=".Fragment.AboutUsFragment"
+            android:exported="false" />
+        <activity
+            android:name=".Fragment.ContactUsFragment"
+            android:exported="false" />
+
+        <activity
             android:name=".Activity.DiscussionActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.Chatbox"
+            android:name=".Activity.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -57,8 +68,8 @@
             android:name=".Activity.DetailActivity"
             android:exported="false" />
         <activity
-            android:name=".Activity.LoginActivity"
-            android:exported="true"></activity>
+            android:name=".Activity.Chatbox"
+            android:exported="true" />
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.example.recycleviewdemo.Activity;
+package com.example.recycleviewdemo.Fragment;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
