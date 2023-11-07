@@ -1,17 +1,17 @@
 {
     "logs": [
         {
-            "outputFile": "com.example.finalproject.app-mergeDebugResources-33:/values-night-v8/values-night-v8.xml",
+            "outputFile": "com.example.finalproject.app-mergeDebugResources-34:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
                     "source": "D:\\Ki7\\PRM392\\FinalProject\\app\\src\\main\\res\\values-night\\themes.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
-                        "startOffsets": "100",
+                        "startOffsets": "102",
                         "endLines": "5",
                         "endColumns": "12",
-                        "endOffsets": "319"
+                        "endOffsets": "324"
                     },
                     "to": {
                         "startLines": "2",

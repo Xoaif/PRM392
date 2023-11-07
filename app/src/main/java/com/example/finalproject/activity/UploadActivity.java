@@ -7,6 +7,8 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import com.bumptech.glide.GlideBuilder;
+import com.bumptech.glide.annotation.GlideModule;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -76,7 +78,7 @@ public class UploadActivity extends AppCompatActivity {
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                saveData();
             }
         });
     }
@@ -84,8 +86,7 @@ public class UploadActivity extends AppCompatActivity {
     public void saveData(){
 
         StorageReference storageReference = FirebaseStorage.getInstance()
-                .getReference()
-                .child("Product")
+                .getReferenceFromUrl("gs://prm-project-3e2cb.appspot.com/Android Images")
                 .child(uri.getLastPathSegment());
 
         AlertDialog.Builder builder = new AlertDialog.Builder(UploadActivity.this);
@@ -102,7 +103,7 @@ public class UploadActivity extends AppCompatActivity {
                 while (!uriTask.isComplete());
                 Uri urlImage = uriTask.getResult();
                 imageURL = urlImage.toString();
-
+                uploadData();
                 dialog.dismiss();
             }
         }).addOnFailureListener(new OnFailureListener() {
@@ -121,13 +122,18 @@ public class UploadActivity extends AppCompatActivity {
 
         Product product = new Product(name, price, description, imageURL);
 
-        FirebaseDatabase.getInstance().getReference("Product").child(name)
-                .setValue(product).addOnCompleteListener(new OnCompleteListener<Void>() {
+        FirebaseDatabase.getInstance("https://prm-project-3e2cb-default-rtdb.asia-southeast1.firebasedatabase.app/")
+                .getReference("product")
+                .child(name)
+                .setValue(product)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(UploadActivity.this, "Saved", Toast.LENGTH_SHORT).show();
                             finish();
+                        }else{
+                            Toast.makeText(UploadActivity.this, "Failed to save data", Toast.LENGTH_SHORT).show();
                         }
                     }
                 }).addOnFailureListener(new OnFailureListener() {
