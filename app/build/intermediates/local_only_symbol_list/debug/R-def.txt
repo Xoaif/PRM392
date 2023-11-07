@@ -21,7 +21,6 @@ id detailName
 id detailPrice
 id fab
 id recCard
-id recDescription
 id recImage
 id recName
 id recPrice

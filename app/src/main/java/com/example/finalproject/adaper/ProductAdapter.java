@@ -41,7 +41,6 @@ public class ProductAdapter extends RecyclerView.Adapter<MyViewHolder> {
         Glide.with(context).load(dataList.get(position).getImage()).into(holder.recImage);
         holder.recName.setText(dataList.get(position).getProductName());
         holder.recPrice.setText(dataList.get(position).getPrice());
-        holder.recDescription.setText(dataList.get(position).getDescription());
 
         holder.recCard.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,7 +63,7 @@ public class ProductAdapter extends RecyclerView.Adapter<MyViewHolder> {
 class MyViewHolder extends RecyclerView.ViewHolder{
 
     ImageView recImage;
-    TextView recName, recPrice, recDescription;
+    TextView recName, recPrice;
     CardView recCard;
 
     public MyViewHolder(@NonNull View itemView) {
@@ -72,7 +71,6 @@ class MyViewHolder extends RecyclerView.ViewHolder{
 
         recImage = itemView.findViewById(R.id.recImage);
         recCard = itemView.findViewById(R.id.recCard);
-        recDescription = itemView.findViewById(R.id.recDescription);
         recPrice = itemView.findViewById(R.id.recPrice);
         recName = itemView.findViewById(R.id.recName);
 

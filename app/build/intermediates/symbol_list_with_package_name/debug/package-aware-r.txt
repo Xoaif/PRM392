@@ -3457,7 +3457,6 @@ id progress_horizontal
 id radio
 id ratio
 id recCard
-id recDescription
 id recImage
 id recName
 id recPrice

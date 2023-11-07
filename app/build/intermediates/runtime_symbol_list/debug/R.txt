@@ -3456,7 +3456,6 @@ int id progress_horizontal 0x7f08016a
 int id radio 0x7f08016b
 int id ratio 0x7f08016c
 int id recCard 0x7f08016d
-int id recDescription 0x7f08016e
 int id recImage 0x7f08016f
 int id recName 0x7f080170
 int id recPrice 0x7f080171
