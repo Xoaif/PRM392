@@ -19,12 +19,12 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
@@ -60,30 +60,30 @@ public class MainActivity extends AppCompatActivity {
                 onClickMoveToDetail(product);
             }
         });
-        eventChangeListener();
         rcvData.setAdapter(productAdapter);
+        eventChangeListener();
     }
 
     private void eventChangeListener(){
-        dr = FirebaseDatabase.getInstance().getReference().child("Price");
-        dr.addValueEventListener(new ValueEventListener() {
+        dr = FirebaseDatabase
+                .getInstance("https://prm-project-3e2cb-default-rtdb.asia-southeast1.firebasedatabase.app/")
+                .getReference("Product");
+        dr.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                mListProduct.clear();
+                mListProduct = new ArrayList<>();
                 for(DataSnapshot snapshot: dataSnapshot.getChildren()){
                     Product product = snapshot.getValue(Product.class);
-                    if (product != null) {
-                        mListProduct.add(product);
-                    }
+                    mListProduct.add(product);
                 }
-                productAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                progressDialog.dismiss();
             }
         });
+
     }
 
     private void onClickMoveToDetail(Product product){
