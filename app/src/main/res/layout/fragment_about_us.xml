@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.AboutUsFragment"
+    android:orientation="vertical"
+    android:background="#FFFFFF">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="About Us"
+                android:textColor="@color/lavender"
+                android:textSize="40dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="At our computer accessory shop, we are passionate about enhancing your digital experience. With a commitment to quality and customer satisfaction, we offer a wide range of cutting-edge computer accessories that cater to all your tech needs.
+                \n  Whether you're a gaming enthusiast looking for high-performance peripherals, a professional seeking productivity-enhancing tools, or someone in need of reliable cables and adapters, we've got you covered.
+                \n Our knowledgeable and friendly team is here to provide expert advice and assistance, ensuring you make the right choice for your specific requirements. We understand the importance of technology in our daily lives, and we are dedicated to delivering top-notch accessories that help you get the most out of your devices.
+                \n  Welcome to our shop, where innovation meets convenience, and your digital world is our priority.
+                \n Made with luv luv "
+                android:textSize="20dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
