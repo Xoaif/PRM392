@@ -24,10 +24,10 @@
             android:name=".activity.UploadActivity"
             android:exported="false" />
         <activity
-            android:name=".Fragment.AboutUsFragment"
+            android:name=".fragment.AboutUsFragment"
             android:exported="false" />
         <activity
-            android:name=".Fragment.ContactUsFragment"
+            android:name=".fragment.ContactUsFragment"
             android:exported="false" />
         <activity
             android:name=".activity.DiscussionActivity"

@@ -1,4 +1,4 @@
-package com.example.recycleviewdemo.Fragment;
+package com.example.recycleviewdemo.fragment;
 
 import android.content.Context;
 import android.content.Intent;
