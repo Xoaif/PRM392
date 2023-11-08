@@ -33,6 +33,7 @@ public class SettingFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         //testing zalopay
         view.findViewById(R.id.btn_privacy).setOnClickListener(new View.OnClickListener() {
             @Override

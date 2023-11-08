@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.example.recycleviewdemo.R;
 import com.example.recycleviewdemo.activity.DetailActivity;
 import com.example.recycleviewdemo.entity.Product;
+import com.example.recycleviewdemo.helper.JsonHelper;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,7 +47,14 @@ public class ProductAdapter extends RecyclerView.Adapter<MyViewHolder> {
         holder.recCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Product item = new Product(
+                        dataList.get(holder.getAdapterPosition()).getId(),
+                        dataList.get(holder.getAdapterPosition()).getProductName(),
+                        dataList.get(holder.getAdapterPosition()).getPrice(),
+                        dataList.get(holder.getAdapterPosition()).getDescription(),
+                        dataList.get(holder.getAdapterPosition()).getImage(), 1);
                 Intent intent = new Intent(context, DetailActivity.class);
+                intent.putExtra("product", JsonHelper.parseObjectToJson(item));
                 intent.putExtra("Image", dataList.get(holder.getAdapterPosition()).getImage());
                 intent.putExtra("Price", dataList.get(holder.getAdapterPosition()).getPrice());
                 intent.putExtra("Description", dataList.get(holder.getAdapterPosition()).getDescription());

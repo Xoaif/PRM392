@@ -79,7 +79,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        List<Product> mListProduct;
         fab = view.findViewById(R.id.fab);
         recyclerView = view.findViewById(R.id.recyclerView);
         SearchView searchView = view.findViewById(R.id.search);
@@ -147,10 +146,6 @@ public class HomeFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
     public void searchList(String text){
         ArrayList<Product> searchList = new ArrayList<>();

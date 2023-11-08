@@ -78,6 +78,7 @@
                         android:layout_margin="4dp"
                         android:src="@drawable/baseline_favorite_24"></ImageView>
                 </LinearLayout>
+
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
