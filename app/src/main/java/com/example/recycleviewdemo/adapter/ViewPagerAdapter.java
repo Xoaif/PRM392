@@ -25,12 +25,10 @@ public class ViewPagerAdapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
-        switch (position) {
-            case 1:
-                return new MyPageFragment();
-            default:
-                return new MyPageFragment();
+        if (position == 1) {
+            return new MyPageFragment();
         }
+        return new MyPageFragment();
 
     }
 

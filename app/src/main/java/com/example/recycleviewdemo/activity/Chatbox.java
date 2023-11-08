@@ -31,7 +31,7 @@ public class Chatbox extends AppCompatActivity {
     ArrayList<String> listOfDiscussion = new ArrayList<String>();
     ArrayAdapter arrayAdpt;
 
-    private DatabaseReference dbr = FirebaseDatabase.getInstance().getReference().getRoot();
+    private final DatabaseReference dbr = FirebaseDatabase.getInstance().getReference().getRoot();
 
     String UserName;
     @Override
