@@ -19,6 +19,7 @@ public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
+    private DatabaseReference databaseReferenceDiscuss;
     ActivitySignUpBinding binding;
 
     @Override
@@ -66,8 +67,11 @@ public class SignUpActivity extends AppCompatActivity {
                         //get   in remote database with path Users (table)
                         databaseReference = firebaseDatabase.getReference("Users");
 
+                        databaseReferenceDiscuss = firebaseDatabase.getReference("Discuss");
+
                         User user = new User(username, password);
                         databaseReference.child(username).setValue(user);
+                        databaseReferenceDiscuss.child(username).setValue(username);
 
                         Toast.makeText(SignUpActivity.this, "Sign up successfully", Toast.LENGTH_SHORT).show();
                         Intent loginIntent = new Intent(getApplicationContext(),LoginActivity.class );

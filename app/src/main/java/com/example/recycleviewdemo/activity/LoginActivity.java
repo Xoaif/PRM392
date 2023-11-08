@@ -105,6 +105,7 @@ public class LoginActivity extends AppCompatActivity {
                         binding.username.setError(null);
                         Toast.makeText(LoginActivity.this, "Login success", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        intent.putExtra("username", username);
                         startActivity(intent);
                     }else {
                         binding.password.setError("invalid credential");
