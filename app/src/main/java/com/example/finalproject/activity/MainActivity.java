@@ -3,6 +3,7 @@ package com.example.finalproject.activity;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     List<Product> dataList;
     DatabaseReference databaseReference;
     ValueEventListener eventListener;
+    ProductAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
 
         fab = findViewById(R.id.fab);
         recyclerView = findViewById(R.id.recyclerView);
+        SearchView searchView = findViewById(R.id.search);
+        searchView.clearFocus();
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(MainActivity.this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
@@ -50,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
 
         dataList = new ArrayList<>();
 
-        ProductAdapter adapter = new ProductAdapter(MainActivity.this, dataList);
+        adapter = new ProductAdapter(MainActivity.this, dataList);
         recyclerView.setAdapter(adapter);
 
         databaseReference = FirebaseDatabase.getInstance().getReference("product");
@@ -74,6 +78,19 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                searchList(newText);
+                return true;
+            }
+        });
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,5 +98,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    public void searchList(String text){
+        ArrayList<Product> searchList = new ArrayList<>();
+        for(Product product: dataList){
+            if(product.getProductName().toLowerCase().contains(text.toLowerCase())){
+                searchList.add(product);
+            }
+        }
+        adapter.searchDataList(searchList);
     }
 }

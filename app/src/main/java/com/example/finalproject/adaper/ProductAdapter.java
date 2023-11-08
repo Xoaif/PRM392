@@ -17,6 +17,7 @@ import com.example.finalproject.R;
 import com.example.finalproject.activity.DetailActivity;
 import com.example.finalproject.entity.Product;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<MyViewHolder> {
@@ -59,6 +60,11 @@ public class ProductAdapter extends RecyclerView.Adapter<MyViewHolder> {
     @Override
     public int getItemCount() {
         return dataList.size();
+    }
+
+    public void searchDataList(ArrayList<Product> searchList){
+        dataList = searchList;
+        notifyDataSetChanged();
     }
 }
 class MyViewHolder extends RecyclerView.ViewHolder{

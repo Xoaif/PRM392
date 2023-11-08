@@ -28,6 +28,10 @@
         "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.example.finalproject.app-main-38:\\mipmap-xxhdpi\\ic_launcher.webp"
     },
     {
+        "merged": "com.example.finalproject.app-merged_res-36:/drawable_baseline_clear_24.xml.flat",
+        "source": "com.example.finalproject.app-main-38:/drawable/baseline_clear_24.xml"
+    },
+    {
         "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.example.finalproject.app-merged_res-36:\\mipmap-xhdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.example.finalproject.app-main-38:\\mipmap-xhdpi\\ic_launcher_round.webp"
     },
@@ -48,12 +52,12 @@
         "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.example.finalproject.app-main-38:\\xml\\data_extraction_rules.xml"
     },
     {
-        "merged": "com.example.finalproject.app-merged_res-36:/layout_activity_detail.xml.flat",
-        "source": "com.example.finalproject.app-main-38:/layout/activity_detail.xml"
-    },
-    {
         "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.example.finalproject.app-merged_res-36:\\mipmap-mdpi_ic_launcher_round.webp.flat",
         "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.example.finalproject.app-main-38:\\mipmap-mdpi\\ic_launcher_round.webp"
+    },
+    {
+        "merged": "com.example.finalproject.app-merged_res-36:/drawable_baseline_search_24.xml.flat",
+        "source": "com.example.finalproject.app-main-38:/drawable/baseline_search_24.xml"
     },
     {
         "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.example.finalproject.app-merged_res-36:\\mipmap-anydpi_ic_launcher_round.xml.flat",
@@ -90,6 +94,10 @@
     {
         "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.example.finalproject.app-merged_res-36:\\drawable_ic_launcher_background.xml.flat",
         "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.example.finalproject.app-main-38:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.example.finalproject.app-merged_res-36:/layout_activity_main.xml.flat",
+        "source": "com.example.finalproject.app-main-38:/layout/activity_main.xml"
     },
     {
         "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.0\\com.example.finalproject.app-merged_res-36:\\mipmap-xhdpi_ic_launcher.webp.flat",
