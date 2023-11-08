@@ -1,4 +1,4 @@
-package com.example.recycleviewdemo.Activity;
+package com.example.recycleviewdemo.activity;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;

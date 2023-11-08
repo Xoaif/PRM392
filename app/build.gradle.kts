@@ -37,6 +37,10 @@ android {
 }
 
 dependencies {
+    implementation("com.google.gms:google-services:4.3.15")
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor("com.github.bumptech.glide:glide:4.16.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.14.2")
     implementation("com.google.firebase:firebase-firestore:24.9.1");
     implementation("com.google.firebase:firebase-storage:20.3.0")
     implementation("com.google.firebase:firebase-database:20.3.0")
@@ -55,4 +59,5 @@ dependencies {
     implementation("com.google.android.gms:play-services-maps:18.1.0")
     implementation ("com.google.android.gms:play-services-location:18.0.0")
     implementation ("com.google.android.gms:play-services-maps:18.0.0")
+    implementation("com.squareup.okhttp3:okhttp:4.6.0")
 }

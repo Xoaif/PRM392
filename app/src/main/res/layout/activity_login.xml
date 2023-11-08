@@ -6,8 +6,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
-    tools:context=".Activity.LoginActivity">
+    android:background="@color/lavender"
+    tools:context=".activity.LoginActivity">
 
     <!-- Linear layout to contain all the
         editText, password , logo and button-->

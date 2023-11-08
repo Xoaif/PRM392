@@ -1,4 +1,4 @@
-package com.example.recycleviewdemo.Activity;
+package com.example.recycleviewdemo.activity;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
