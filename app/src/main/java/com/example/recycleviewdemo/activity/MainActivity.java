@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import com.example.recycleviewdemo.databinding.ActivityMainBinding;
+import com.example.recycleviewdemo.fragment.CartFragment;
 import com.example.recycleviewdemo.fragment.SettingFragment;
 import com.example.recycleviewdemo.R;
 import com.example.recycleviewdemo.fragment.HomeFragment;
@@ -12,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     ActivityMainBinding binding;
     SettingFragment settingFragment;
     HomeFragment homeFragment;
+    CartFragment cartFragment;
 
     private String username;
 
@@ -51,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
             if(item.getItemId() == R.id.action_home){
                 replaceFragment(homeFragment);
             }else if(item.getItemId() == R.id.action_cart){
-//                    replaceFragment(cartFragment);
+                    replaceFragment(cartFragment);
             }else if(item.getItemId() == R.id.action_chat){
                     Intent intent = new Intent(this, Chatbox.class);
                     intent.putExtra("username", username);
@@ -67,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
     private void createFragment(){
         settingFragment = new SettingFragment();
         homeFragment = new HomeFragment();
+        cartFragment = new CartFragment();
     }
     private void replaceFragment(Fragment fragment){
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

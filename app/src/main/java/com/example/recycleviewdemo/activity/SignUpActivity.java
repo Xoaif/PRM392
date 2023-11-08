@@ -14,6 +14,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.UUID;
+
 public class SignUpActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
@@ -67,9 +69,10 @@ public class SignUpActivity extends AppCompatActivity {
                         //get   in remote database with path Users (table)
                         databaseReference = firebaseDatabase.getReference("Users");
 
-                        databaseReferenceDiscuss = firebaseDatabase.getReference("Discuss");
+                        String id = UUID.randomUUID().toString();
+                        User user = new User(id, username, password);
 
-                        User user = new User(username, password);
+                        databaseReferenceDiscuss = firebaseDatabase.getReference("Discuss");
                         databaseReference.child(username).setValue(user);
                         databaseReferenceDiscuss.child(username).setValue(username);
 

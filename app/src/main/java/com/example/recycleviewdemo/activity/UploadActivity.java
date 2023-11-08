@@ -30,6 +30,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.UUID;
+
 public class UploadActivity extends AppCompatActivity {
 
     ImageView uploadImage;
@@ -119,7 +121,8 @@ public class UploadActivity extends AppCompatActivity {
         String price = uploadPrice.getText().toString();
         String description = uploadDescription.getText().toString();
 
-        Product product = new Product(name, price, description, imageURL);
+        String id = UUID.randomUUID().toString();
+        Product product = new Product(id, name, price, description, imageURL, 1);
 
         FirebaseDatabase.getInstance("https://prm-project-3e2cb-default-rtdb.asia-southeast1.firebasedatabase.app/")
                 .getReference("product")

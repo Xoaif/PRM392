@@ -112,6 +112,11 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
+
     public void searchList(String text){
         ArrayList<Product> searchList = new ArrayList<>();
         for(Product product: dataList){
