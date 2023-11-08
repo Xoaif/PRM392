@@ -48,16 +48,17 @@ public class DiscussionActivity extends AppCompatActivity {
         lvDiscussion.setAdapter(arrayAdpt);
 
 
-        UserName = getIntent().getExtras().get("user_name").toString();
-        SelectedTopic = getIntent().getExtras().get("selected_topic").toString();
+        UserName = getIntent().getExtras().get("username").toString();
+
+        Log.d("nameeee",UserName);
+//        SelectedTopic = getIntent().getExtras().get("selected_topic").toString();
         setTitle("Topic : " + SelectedTopic);
 
-        dbr = FirebaseDatabase.getInstance().getReference().child(SelectedTopic);
+        dbr = FirebaseDatabase.getInstance().getReference().child("Discuss").child(UserName);
 
         btnSendMsg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("dcm","in here");
                 Map<String, Object> map = new HashMap<String, Object>();
                 user_msg_key = dbr.push().getKey();
                 dbr.updateChildren(map);

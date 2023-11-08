@@ -14,6 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.recycleviewdemo.R;
+import com.example.recycleviewdemo.entity.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,6 +33,7 @@ public class Chatbox extends AppCompatActivity {
     ArrayAdapter arrayAdpt;
 
     private DatabaseReference dbr = FirebaseDatabase.getInstance().getReference().getRoot();
+    private DatabaseReference dbrChat = FirebaseDatabase.getInstance().getReference("Discuss");
 
     String UserName;
     @Override
@@ -39,62 +41,53 @@ public class Chatbox extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatbox);
 
-        lvDiscussionTopics = (ListView) findViewById(R.id.lvDiscussions);
-        arrayAdpt = new ArrayAdapter(this,
-                android.R.layout.simple_list_item_1, listOfDiscussion);
-        lvDiscussionTopics.setAdapter(arrayAdpt);
+
+        UserName = getIntent().getExtras().get("username").toString();
+
+        if(UserName.equals("lam")){
+            lvDiscussionTopics = (ListView) findViewById(R.id.lvDiscussions);
+            arrayAdpt = new ArrayAdapter(this,
+                    android.R.layout.simple_list_item_1, listOfDiscussion);
+            lvDiscussionTopics.setAdapter(arrayAdpt);
 
 
-        getUserName();
-        dbr.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Set<String> set = new HashSet<String>();
-                Iterator i = dataSnapshot.getChildren().iterator();
 
-                while(i.hasNext()){
-                    set.add(((DataSnapshot)i.next()).getKey());
+            dbrChat.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    Set<String> set = new HashSet<String>();
+                    Iterator i = dataSnapshot.getChildren().iterator();
+
+                    while(i.hasNext()){
+                        set.add(((DataSnapshot)i.next()).getKey());
+                    }
+
+                    arrayAdpt.clear();
+                    arrayAdpt.addAll(set);
+                    arrayAdpt.notifyDataSetChanged();
                 }
 
-                arrayAdpt.clear();
-                arrayAdpt.addAll(set);
-                arrayAdpt.notifyDataSetChanged();
-            }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
+                }
+            });
 
-            }
-        });
+            lvDiscussionTopics.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Intent i = new Intent(getApplicationContext(), DiscussionActivity.class);
+                    i.putExtra("selected_topic", ((TextView)view).getText().toString());
+                    i.putExtra("username", UserName);
+                    startActivity(i);
+                }
+            });
+        }else{
+            Intent i = new Intent(getApplicationContext(), DiscussionActivity.class);
+            i.putExtra("username", UserName);
+            startActivity(i);
+        }
 
-        lvDiscussionTopics.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(getApplicationContext(), DiscussionActivity.class);
-                i.putExtra("selected_topic", ((TextView)view).getText().toString());
-                i.putExtra("user_name", UserName);
-                startActivity(i);
-            }
-        });
     }
 
-    private void getUserName(){
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        final EditText userName = new EditText(this);
-
-        builder.setView(userName);
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                UserName = userName.getText().toString();
-            }
-        });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                getUserName();
-            }
-        });
-        builder.show();
-    }
 }
