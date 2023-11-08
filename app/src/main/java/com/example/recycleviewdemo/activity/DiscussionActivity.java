@@ -1,6 +1,5 @@
-package com.example.recycleviewdemo.Activity;
+package com.example.recycleviewdemo.activity;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;

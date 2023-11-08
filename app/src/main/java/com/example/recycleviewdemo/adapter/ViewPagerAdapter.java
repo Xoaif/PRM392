@@ -1,4 +1,4 @@
-package com.example.recycleviewdemo.Adapter;
+package com.example.recycleviewdemo.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;

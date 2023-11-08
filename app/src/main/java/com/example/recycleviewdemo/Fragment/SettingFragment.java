@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.recycleviewdemo.Activity.LoginActivity;
+import com.example.recycleviewdemo.activity.LoginActivity;
 import com.example.recycleviewdemo.R;
 
 public class SettingFragment extends Fragment {

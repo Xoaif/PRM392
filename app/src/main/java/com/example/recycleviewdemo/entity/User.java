@@ -1,4 +1,4 @@
-package com.example.recycleviewdemo.Entity;
+package com.example.recycleviewdemo.entity;
 
 import java.io.Serializable;
 
