@@ -4,26 +4,19 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.LifecycleObserver;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
-import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.widget.Toast;
-import com.example.recycleviewdemo.Adapter.ViewPagerAdapter;
+
 import com.example.recycleviewdemo.Entity.Product;
 import com.example.recycleviewdemo.Adapter.ProductAdapter;
 import com.example.recycleviewdemo.Fragment.HomeFragment;
 import com.example.recycleviewdemo.Fragment.SettingFragment;
 import com.example.recycleviewdemo.R;
-import com.example.recycleviewdemo.Interface.IClickItemProductListener;
 import com.example.recycleviewdemo.databinding.ActivityMainBinding;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
@@ -73,9 +66,9 @@ public class MainActivity extends AppCompatActivity {
 //        });
 //        eventChangeListener();
 //        rcvData.setAdapter(productAdapter);
-//
-//        bottomNavigationView = findViewById(R.id.bottom_nav);
-//        mViewPager = findViewById(R.id.view_pager);
+
+        bottomNavigationView = findViewById(R.id.bottom_nav);
+        mViewPager = findViewById(R.id.view_pager);
 //        setUpViewPager();
 
         binding = ActivityMainBinding.inflate(getLayoutInflater());
@@ -125,14 +118,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-    private void onClickMoveToDetail(Product product){
-        Intent intent = new Intent(this, DetailActivity.class);
-        Bundle bundle = new Bundle();
-        bundle.putSerializable("object_product", product);
-        intent.putExtras(bundle);
-        startActivity(intent);
-    }
+//
+//    private void onClickMoveToDetail(Product product){
+//        Intent intent = new Intent(this, DetailActivity.class);
+//        Bundle bundle = new Bundle();
+//        bundle.putSerializable("object_product", product);
+//        intent.putExtras(bundle);
+//        startActivity(intent);
+//    }
 
 
 }

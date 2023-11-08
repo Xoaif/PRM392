@@ -27,7 +27,7 @@ public class DetailActivity extends AppCompatActivity {
         Product product = (Product) bundle.get("object_product");
 
         detailImage = findViewById(R.id.img_product);
-
+        detailImage.setImageResource(R.drawable.nb1);
         detailName = findViewById(R.id.tv_name);
         detailName.setText(product.getName());
 
