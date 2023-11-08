@@ -22,7 +22,7 @@ import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
-    private Context context;
+    private final Context context;
     private List<Product> dataList;
 
     public ProductAdapter(Context context, List<Product> dataList) {
@@ -41,7 +41,7 @@ public class ProductAdapter extends RecyclerView.Adapter<MyViewHolder> {
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Glide.with(context).load(dataList.get(position).getImage()).into(holder.recImage);
         holder.recName.setText(dataList.get(position).getProductName());
-        holder.recPrice.setText("$" + dataList.get(position).getPrice());
+        holder.recPrice.setText("￥" + dataList.get(position).getPrice());
 
         holder.recCard.setOnClickListener(new View.OnClickListener() {
             @Override

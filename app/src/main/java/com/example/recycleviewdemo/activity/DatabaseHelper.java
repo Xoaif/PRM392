@@ -36,19 +36,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean checkUsername(String username){
         SQLiteDatabase myDatabase = this.getWritableDatabase();
         @SuppressLint("Recycle") Cursor cursor = myDatabase.rawQuery("Select * from allUsers where username = ?", new String[]{username});
-        if(cursor.getCount() > 0) {
-            return true;
-        }
-        return false;
+        return cursor.getCount() > 0;
     }
 
     public boolean checkUsernamePassword(String username, String password){
         SQLiteDatabase myDatabase = this.getWritableDatabase();
         @SuppressLint("Recycle") Cursor cursor = myDatabase.rawQuery("Select * from allUsers where username = ? and password = ?", new String[]{username, password});
-        if(cursor.getCount() > 0) {
-            return true;
-        }
-        return false;
+        return cursor.getCount() > 0;
     }
 
 }

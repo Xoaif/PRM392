@@ -13,6 +13,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.recycleviewdemo.activity.LoginActivity;
+import com.example.recycleviewdemo.activity.CheckoutActivity;
 import com.example.recycleviewdemo.R;
 
 public class SettingFragment extends Fragment {
@@ -32,6 +33,14 @@ public class SettingFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        //testing zalopay
+        view.findViewById(R.id.btn_privacy).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), CheckoutActivity.class);
+                startActivity(intent);
+            }
+        });
         view.findViewById(R.id.btn_contact).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
