@@ -8,7 +8,12 @@
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
+    <queries>
+        <package android:name="vn.com.vng.zalopay" />
+        <package android:name="vn.com.vng.zalopay.sbmc" />
+    </queries>
 
     <application
         android:allowBackup="true"
@@ -21,12 +26,25 @@
         android:theme="@style/Theme.RecycleViewDemo"
         tools:targetApi="31">
         <activity
+            android:name=".Activity.CheckoutActivity"
+            android:launchMode="singleTask"
+            android:exported="true">
+
+            <intent-filter tools:ignore="AppLinkUrlError">
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <action android:name="android.intent.action.VIEW" />
+                <data android:scheme="demozpdk"
+                    android:host="app" />
+            </intent-filter>
+        </activity>
+
+        <activity
             android:name=".Fragment.AboutUsFragment"
             android:exported="false" />
         <activity
             android:name=".Fragment.ContactUsFragment"
             android:exported="false" />
-
         <activity
             android:name=".Activity.DiscussionActivity"
             android:exported="false" />
@@ -53,11 +71,6 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_map_key" />
-
-        <activity
-            android:name=".Activity.MapsActivity"
-            android:exported="false"
-            android:label="@string/title_activity_maps" />
         <activity
             android:name=".Activity.SignUpActivity"
             android:exported="false" />
