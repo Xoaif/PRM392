@@ -7,8 +7,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import com.bumptech.glide.GlideBuilder;
-import com.bumptech.glide.annotation.GlideModule;
+
 
 import android.app.Activity;
 import android.content.Intent;

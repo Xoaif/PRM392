@@ -46,7 +46,7 @@ public class DetailActivity extends AppCompatActivity {
         if(bundle != null){
             detailDescription.setText(bundle.getString("Description"));
             detailName.setText(bundle.getString("Name"));
-            detailPrice.setText("$" + bundle.getString("Price"));
+            detailPrice.setText("￥" + bundle.getString("Price"));
             Glide.with(this).load(bundle.getString("Image")).into(detailImage);
         }
 

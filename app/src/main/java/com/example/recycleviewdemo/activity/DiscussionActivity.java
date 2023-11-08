@@ -40,65 +40,129 @@ public class DiscussionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_discussion);
 
-        btnSendMsg = (Button) findViewById(R.id.btnSendMsg);
-        etMsg = (EditText) findViewById(R.id.etMessage);
+        if(getIntent().getExtras().get("username").toString().equals("lam")){
+            btnSendMsg = (Button) findViewById(R.id.btnSendMsg);
+            etMsg = (EditText) findViewById(R.id.etMessage);
 
-        lvDiscussion = (ListView) findViewById(R.id.lvConversation);
-        arrayAdpt = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listConversation);
-        lvDiscussion.setAdapter(arrayAdpt);
-
-
-        UserName = getIntent().getExtras().get("user_name").toString();
-        SelectedTopic = getIntent().getExtras().get("selected_topic").toString();
-        setTitle("Topic : " + SelectedTopic);
-
-        dbr = FirebaseDatabase.getInstance().getReference().child(SelectedTopic);
-
-        btnSendMsg.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("dcm","in here");
-                Map<String, Object> map = new HashMap<String, Object>();
-                user_msg_key = dbr.push().getKey();
-                dbr.updateChildren(map);
-
-                DatabaseReference dbr2 = dbr.child(user_msg_key);
-                Map<String, Object> map2 = new HashMap<String, Object>();
-                map2.put("msg", etMsg.getText().toString());
-                map2.put("user", UserName);
-                dbr2.updateChildren(map2);
-
-                etMsg.setText("");
-            }
-        });
+            lvDiscussion = (ListView) findViewById(R.id.lvConversation);
+            arrayAdpt = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listConversation);
+            lvDiscussion.setAdapter(arrayAdpt);
 
 
-        dbr.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                updateConversation(dataSnapshot);
-            }
+            UserName = getIntent().getExtras().get("username").toString();
 
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                updateConversation(dataSnapshot);
-            }
+            SelectedTopic = getIntent().getExtras().get("selected_topic").toString();
+            setTitle("Topic : " + SelectedTopic);
 
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
+            dbr = FirebaseDatabase.getInstance().getReference().child("Discuss").child(SelectedTopic);
 
-            }
+            btnSendMsg.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Map<String, Object> map = new HashMap<String, Object>();
+                    user_msg_key = dbr.push().getKey();
+                    dbr.updateChildren(map);
 
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+                    DatabaseReference dbr2 = dbr.child(user_msg_key);
+                    Map<String, Object> map2 = new HashMap<String, Object>();
+                    map2.put("msg", etMsg.getText().toString());
+                    map2.put("user", UserName);
+                    dbr2.updateChildren(map2);
 
-            }
+                    etMsg.setText("");
+                }
+            });
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
 
-            }
-        });
+            dbr.addChildEventListener(new ChildEventListener() {
+                @Override
+                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                    updateConversation(dataSnapshot);
+                }
+
+                @Override
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                    updateConversation(dataSnapshot);
+                }
+
+                @Override
+                public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }else{
+            btnSendMsg = (Button) findViewById(R.id.btnSendMsg);
+            etMsg = (EditText) findViewById(R.id.etMessage);
+
+            lvDiscussion = (ListView) findViewById(R.id.lvConversation);
+            arrayAdpt = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listConversation);
+            lvDiscussion.setAdapter(arrayAdpt);
+
+
+            UserName = getIntent().getExtras().get("username").toString();
+
+//        SelectedTopic = getIntent().getExtras().get("selected_topic").toString();
+            setTitle("Topic : " + SelectedTopic);
+
+            dbr = FirebaseDatabase.getInstance().getReference().child("Discuss").child(UserName);
+
+            btnSendMsg.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Map<String, Object> map = new HashMap<String, Object>();
+                    user_msg_key = dbr.push().getKey();
+                    dbr.updateChildren(map);
+
+                    DatabaseReference dbr2 = dbr.child(user_msg_key);
+                    Map<String, Object> map2 = new HashMap<String, Object>();
+                    map2.put("msg", etMsg.getText().toString());
+                    map2.put("user", UserName);
+                    dbr2.updateChildren(map2);
+
+                    etMsg.setText("");
+                }
+            });
+
+
+            dbr.addChildEventListener(new ChildEventListener() {
+                @Override
+                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                    updateConversation(dataSnapshot);
+                }
+
+                @Override
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                    updateConversation(dataSnapshot);
+                }
+
+                @Override
+                public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
+
+
     }
 
 

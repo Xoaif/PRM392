@@ -21,6 +21,7 @@ public class SignUpActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReference;
+    private DatabaseReference databaseReferenceDiscuss;
     ActivitySignUpBinding binding;
 
     @Override
@@ -70,7 +71,10 @@ public class SignUpActivity extends AppCompatActivity {
 
                         String id = UUID.randomUUID().toString();
                         User user = new User(id, username, password);
+
+                        databaseReferenceDiscuss = firebaseDatabase.getReference("Discuss");
                         databaseReference.child(username).setValue(user);
+                        databaseReferenceDiscuss.child(username).setValue(username);
 
                         Toast.makeText(SignUpActivity.this, "Sign up successfully", Toast.LENGTH_SHORT).show();
                         Intent loginIntent = new Intent(getApplicationContext(),LoginActivity.class );
