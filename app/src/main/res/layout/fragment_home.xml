@@ -30,7 +30,9 @@
         android:id="@+id/recyclerView"
         android:scrollbars="vertical"
         android:layout_marginTop="20dp"
-        android:layout_below="@+id/search"/>
+        android:layout_below="@+id/search"
+        android:layout_above="@id/bottom_nav"
+        />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
@@ -45,5 +47,19 @@
         android:backgroundTint="@color/lavender"
         android:src="@drawable/baseline_add_24"
         app:tint="@color/white" />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/bottom_nav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/menu_bottom_nav"
+        app:itemBackground="@color/lavender"
+        app:itemIconTint="@color/white"
+        app:itemTextColor="@color/white"
+        />
+
 
 </RelativeLayout>
